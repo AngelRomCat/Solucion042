@@ -5,11 +5,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{0BC8412E-F6A5-4F78-8264-3C1126D62061}</ProjectGuid>
+    <ProjectGuid>{774471BF-8839-42E9-8664-B8623CB30D98}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>_02_Services</RootNamespace>
-    <AssemblyName>02_Services</AssemblyName>
+    <RootNamespace>_04_Persistencia</RootNamespace>
+    <AssemblyName>04_Persistencia</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
@@ -51,22 +51,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CategoriasServices\CategoriasService.cs" />
     <Compile Include="Class1.cs" />
-    <Compile Include="ClientesServices\ClientesService.cs" />
-    <Compile Include="DetallePedidosServices\DetallePedidosService.cs" />
-    <Compile Include="EmpleadosServices\EmpleadosService.cs" />
-    <Compile Include="NavierasServices\NavierasService.cs" />
-    <Compile Include="PedidosServices\PedidosService.cs" />
-    <Compile Include="ProductosServices\ProductosService.cs" />
-    <Compile Include="ProveedoresServices\ProveedoresService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repository\Class\GenericRepository.cs" />
+    <Compile Include="UoW\Class\UnitOfWork.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\04_Persistencia\04_Persistencia.csproj">
-      <Project>{774471bf-8839-42e9-8664-b8623cb30d98}</Project>
-      <Name>04_Persistencia</Name>
-    </ProjectReference>
     <ProjectReference Include="..\05_Data\05_Data.csproj">
       <Project>{4f2f6861-9f7f-4247-9f34-385aeb0660b4}</Project>
       <Name>05_Data</Name>
@@ -76,7 +66,6 @@
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>

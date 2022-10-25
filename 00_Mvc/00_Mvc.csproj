@@ -230,6 +230,10 @@
       <Project>{0bc8412e-f6a5-4f78-8264-3c1126d62061}</Project>
       <Name>02_Services</Name>
     </ProjectReference>
+    <ProjectReference Include="..\04_Persistencia\04_Persistencia.csproj">
+      <Project>{774471bf-8839-42e9-8664-b8623cb30d98}</Project>
+      <Name>04_Persistencia</Name>
+    </ProjectReference>
     <ProjectReference Include="..\05_Data\05_Data.csproj">
       <Project>{4f2f6861-9f7f-4247-9f34-385aeb0660b4}</Project>
       <Name>05_Data</Name>
