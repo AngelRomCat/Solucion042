@@ -1,10 +1,6 @@
 ﻿using _04_Persistencia.Repository.Class;
 using _05_Data.Data;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace _04_Persistencia.UoW.Class
 {
@@ -12,7 +8,7 @@ namespace _04_Persistencia.UoW.Class
     {
         private readonly NorthWindTuneadoDbContext _context;
 
-        private GenericRepository<Cliente> ClienteRepository;
+        private GenericRepository<Cliente> _clienteRepository;
 
         private bool _disposed;
 
@@ -23,8 +19,8 @@ namespace _04_Persistencia.UoW.Class
 
         //Repositories
 
-        public GenericRepository<Cliente> ClienteRepository => clienteRepository ??
-                                                             (clienteRepository = new GenericRepository<Cliente>(_context));
+        public GenericRepository<Cliente> ClienteRepository => _clienteRepository ??
+                                                             (_clienteRepository = new GenericRepository<Cliente>(_context));
 
         ////Esto también se puede poner así en forma de PROPERTY que da valor al 
         ////private Atributo clienteRepository 
@@ -33,7 +29,7 @@ namespace _04_Persistencia.UoW.Class
         //{
         //    get
         //    {
-        //        return clienteRepository ?? (clienteRepository = new GenericRepository<Cliente>(_context));
+        //        return _clienteRepository ?? (_clienteRepository = new GenericRepository<Cliente>(_context));
         //    }
         //}
 
