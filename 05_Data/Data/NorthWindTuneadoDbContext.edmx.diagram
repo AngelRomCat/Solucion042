@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="f374860ad2b94e0daadc6f3d8d242a1a" Name="Diagram1" ZoomLevel="21">
+        <EntityTypeShape EntityType="NorthWindTuneadoModel.Categoria" Width="1.5" PointX="0.75" PointY="12.875" />
+        <EntityTypeShape EntityType="NorthWindTuneadoModel.Cliente" Width="1.5" PointX="0.75" PointY="8.625" />
+        <EntityTypeShape EntityType="NorthWindTuneadoModel.DetallePedido" Width="1.5" PointX="5.25" PointY="1.25" />
+        <EntityTypeShape EntityType="NorthWindTuneadoModel.Empleado" Width="1.5" PointX="0.75" PointY="5.5" />
+        <EntityTypeShape EntityType="NorthWindTuneadoModel.Naviera" Width="1.5" PointX="0.75" PointY="1.5" />
+        <EntityTypeShape EntityType="NorthWindTuneadoModel.Pedido" Width="1.5" PointX="3" PointY="1" />
+        <EntityTypeShape EntityType="NorthWindTuneadoModel.Producto" Width="1.5" PointX="3" PointY="14.125" />
+        <EntityTypeShape EntityType="NorthWindTuneadoModel.Proveedor" Width="1.5" PointX="0.75" PointY="15.375" />
+        <AssociationConnector Association="NorthWindTuneadoModel.FK_Producto_Categoria" />
+        <AssociationConnector Association="NorthWindTuneadoModel.FK_Pedido_Cliente" />
+        <AssociationConnector Association="NorthWindTuneadoModel.FK_Order_Details_Pedido" />
+        <AssociationConnector Association="NorthWindTuneadoModel.FK_Order_Details_Producto" />
+        <AssociationConnector Association="NorthWindTuneadoModel.FK_Pedido_Empleado" />
+        <AssociationConnector Association="NorthWindTuneadoModel.FK_Pedido_Naviera" />
+        <AssociationConnector Association="NorthWindTuneadoModel.FK_Producto_Proveedor" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

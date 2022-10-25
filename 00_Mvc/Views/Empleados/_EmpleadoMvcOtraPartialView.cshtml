@@ -1,0 +1,65 @@
+﻿@model _05_Data.Data.Empleado
+
+<div>
+    <h4>Empleado</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.LastName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LastName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FirstName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FirstName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.birthDate)
+        </dt>
+
+        <dd>
+            @{
+                string fecha = "";
+                if (@Html.DisplayFor(model => model.birthDate) != null)
+                {
+                    fecha = Model.birthDate.Value.ToString("dd/MM/yyyy");//@Html.DisplayFor(modelItem => item.birthDate).ToString("dd/MM/aaaa");
+                }
+
+            }
+            @fecha
+            @*@Html.DisplayFor(model => model.birthDate)*@
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Photo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Photo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Notes)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Notes)
+        </dd>
+
+    </dl>
+</div>
+
+@{
+    string onClickAnterior = "empleado(" + Model.EmployeeID + "," + 0 + ")";
+    string onClickSiguiente = "empleado(" + Model.EmployeeID + "," + 1 + ")";
+}
+<input type="button" value="Anterior" onclick=@onClickAnterior>
+<input type="button" value="Siguiente" onclick=@onClickSiguiente>
+
