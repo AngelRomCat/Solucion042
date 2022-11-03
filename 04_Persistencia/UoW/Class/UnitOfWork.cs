@@ -9,6 +9,8 @@ namespace _04_Persistencia.UoW.Class
         private readonly NorthWindTuneadoDbContext _context;
 
         private GenericRepository<Cliente> _clienteRepository;
+        private GenericRepository<Empleado> _empleadoRepository;
+        private GenericRepository<Naviera> _navieraRepository;
 
         private bool _disposed;
 
@@ -32,6 +34,29 @@ namespace _04_Persistencia.UoW.Class
         //        return _clienteRepository ?? (_clienteRepository = new GenericRepository<Cliente>(_context));
         //    }
         //}
+
+        public GenericRepository<Empleado> EmpleadoRepository => _empleadoRepository ??
+                                                             (_empleadoRepository = new GenericRepository<Empleado>(_context));
+        public GenericRepository<Naviera> NavieraRepository => _navieraRepository ??
+                                                             (_navieraRepository = new GenericRepository<Naviera>(_context));
+
+        //public GenericRepository<Cliente> ClienteRepository => _clienteRepository ??
+        //                                                     (_clienteRepository = new GenericRepository<Cliente>(_context));
+
+        //public GenericRepository<Cliente> ClienteRepository => _clienteRepository ??
+        //                                                     (_clienteRepository = new GenericRepository<Cliente>(_context));
+
+        //public GenericRepository<Cliente> ClienteRepository => _clienteRepository ??
+        //                                                     (_clienteRepository = new GenericRepository<Cliente>(_context));
+
+        //public GenericRepository<Cliente> ClienteRepository => _clienteRepository ??
+        //                                                     (_clienteRepository = new GenericRepository<Cliente>(_context));
+
+        //public GenericRepository<Cliente> ClienteRepository => _clienteRepository ??
+        //                                                     (_clienteRepository = new GenericRepository<Cliente>(_context));
+
+        //public GenericRepository<Cliente> ClienteRepository => _clienteRepository ??
+        //                                                     (_clienteRepository = new GenericRepository<Cliente>(_context));
 
         public void Save()
         {
