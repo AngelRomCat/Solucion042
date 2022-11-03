@@ -4,10 +4,6 @@ using System.Web.Mvc;
 using _02_Services.EmpleadosServices;
 using _05_Data.Data;
 using _05_Data.ViewModels;
-using _04_Persistencia;
-using _04_Persistencia.UoW.Class;
-using _04_Persistencia.Repository.Class;
-using System.Data.Entity.Core.Common.CommandTrees.ExpressionBuilder;
 
 namespace _00_Mvc.Controllers
 {
@@ -15,7 +11,6 @@ namespace _00_Mvc.Controllers
     {
         //private NorthWindTuneadoDbContext db = new NorthWindTuneadoDbContext();
         private readonly EmpleadosService _empleadosService = new EmpleadosService();
-
 
         // GET: Empleados
         public ActionResult Index(int? id)
@@ -46,6 +41,7 @@ namespace _00_Mvc.Controllers
             return View(empleado);
             //hasta aquí
         }
+
         // GET: Empleados/Details/5
         public ActionResult DetailsAjax(int? id)
         {
