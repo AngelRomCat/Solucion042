@@ -11,6 +11,7 @@ namespace _04_Persistencia.UoW.Class
         private GenericRepository<Cliente> _clienteRepository;
         private GenericRepository<Empleado> _empleadoRepository;
         private GenericRepository<Naviera> _navieraRepository;
+        private GenericRepository<Categoria> _categoriaRepository;
 
         private bool _disposed;
 
@@ -39,24 +40,8 @@ namespace _04_Persistencia.UoW.Class
                                                              (_empleadoRepository = new GenericRepository<Empleado>(_context));
         public GenericRepository<Naviera> NavieraRepository => _navieraRepository ??
                                                              (_navieraRepository = new GenericRepository<Naviera>(_context));
-
-        //public GenericRepository<Cliente> ClienteRepository => _clienteRepository ??
-        //                                                     (_clienteRepository = new GenericRepository<Cliente>(_context));
-
-        //public GenericRepository<Cliente> ClienteRepository => _clienteRepository ??
-        //                                                     (_clienteRepository = new GenericRepository<Cliente>(_context));
-
-        //public GenericRepository<Cliente> ClienteRepository => _clienteRepository ??
-        //                                                     (_clienteRepository = new GenericRepository<Cliente>(_context));
-
-        //public GenericRepository<Cliente> ClienteRepository => _clienteRepository ??
-        //                                                     (_clienteRepository = new GenericRepository<Cliente>(_context));
-
-        //public GenericRepository<Cliente> ClienteRepository => _clienteRepository ??
-        //                                                     (_clienteRepository = new GenericRepository<Cliente>(_context));
-
-        //public GenericRepository<Cliente> ClienteRepository => _clienteRepository ??
-        //                                                     (_clienteRepository = new GenericRepository<Cliente>(_context));
+        public GenericRepository<Categoria> CategoriaRepository => _categoriaRepository ??
+                                                             (_categoriaRepository = new GenericRepository<Categoria>(_context));
 
         public void Save()
         {
