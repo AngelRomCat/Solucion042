@@ -12,6 +12,10 @@ namespace _04_Persistencia.UoW.Class
         private GenericRepository<Empleado> _empleadoRepository;
         private GenericRepository<Naviera> _navieraRepository;
         private GenericRepository<Categoria> _categoriaRepository;
+        private GenericRepository<DetallePedido> _detallepedidoRepository;
+        private GenericRepository<Pedido> _pedidoRepository;
+        private GenericRepository<Producto> _productoRepository;
+        private GenericRepository<Proveedor> _proveedorRepository;
 
         private bool _disposed;
 
@@ -42,6 +46,15 @@ namespace _04_Persistencia.UoW.Class
                                                              (_navieraRepository = new GenericRepository<Naviera>(_context));
         public GenericRepository<Categoria> CategoriaRepository => _categoriaRepository ??
                                                              (_categoriaRepository = new GenericRepository<Categoria>(_context));
+        public GenericRepository<DetallePedido> DetallePedidoRepository => _detallepedidoRepository ??
+                                                             (_detallepedidoRepository = new GenericRepository<DetallePedido>(_context));
+        public GenericRepository<Pedido> PedidoRepository => _pedidoRepository ??
+                                                            (_pedidoRepository = new GenericRepository<Pedido>(_context));
+        public GenericRepository<Producto> ProductoRepository => _productoRepository ??
+                                                            (_productoRepository = new GenericRepository<Producto>(_context));
+        public GenericRepository<Proveedor> ProveedorRepository => _proveedorRepository ??
+                                                            (_proveedorRepository = new GenericRepository<Proveedor>(_context));
+
 
         public void Save()
         {

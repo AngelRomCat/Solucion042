@@ -3,12 +3,18 @@ using _05_Data.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using _04_Persistencia;
+using _04_Persistencia.UoW.Class;
+using _04_Persistencia.Repository.Class;
 
 namespace _02_Services.EmpleadosServices
 {
     public class EmpleadosService
     {
+        //
+        //ESTO SE HA DE QUITAR:
         private static NorthWindTuneadoDbContext _db = null;
+
         public EmpleadosService()
         {
             if (_db == null)
@@ -16,26 +22,28 @@ namespace _02_Services.EmpleadosServices
                 _db = new NorthWindTuneadoDbContext();
             }
         }
+        private readonly UnitOfWork unit = new UnitOfWork();
 
         //Index
         //Si bool? madre == null: Devolvemos todos los registros de la Tabla
         //Si bool? madre != null: Devolvemos todos los registros de la Tabla
         //que pertenecen al Registro de la Madre cuya id es id
-        //Por eso devuelve un IList<Empleado>
-        public IList<Empleado> List(int? id, string madre)
+        //Por eso devuelve un IList<EmpleadoRepository>
+        public IEnumerable<Empleado> List(int? id, string madre)
         {
-            IList<Empleado> empleados = null;
+            IEnumerable<Empleado> empleados = null;
             if (id == null || id < 1)
             {
-                empleados = _db.Empleado.ToList();
+                //empleados = _db.Empleado.ToList();
+                empleados = unit.EmpleadoRepository.GetAll();
             }
             else
             {
                 if (madre == null)
                 {
-                    empleados = _db.Empleado
-                                    .Where(x => x.EmployeeID == id)
-                                    .ToList();
+                    //empleados = _db.Empleado
+                    //                .Where(x => x.EmployeeID == id)
+                    //                .ToList();
                 }
                 //if (madre == "TablaMadre01")
                 //{
@@ -53,9 +61,9 @@ namespace _02_Services.EmpleadosServices
 
             return empleados;
         }
-        public IList<Empleado> ListApi(int? id, string madre)
+        public IEnumerable<Empleado> ListApi(int? id, string madre)
         {
-            IList<Empleado> empleadosTabla = List(id, madre);
+            IEnumerable<Empleado> empleadosTabla = List(id, madre);
             IList<Empleado> empleados = new List<Empleado>();
             foreach (var empleadoTabla in empleadosTabla)
             {
@@ -70,9 +78,10 @@ namespace _02_Services.EmpleadosServices
         public Empleado Detail(int id)
         {
             Empleado empleado = null;
-            empleado = _db.Empleado
-                                .Where(x => x.EmployeeID == id)
-                                .FirstOrDefault();
+            //empleado = _db.Empleado
+            //                    .Where(x => x.EmployeeID == id)
+            //                    .FirstOrDefault();
+            empleado = unit.EmpleadoRepository.FindById(id);
             return empleado;
         }
         public Empleado DetailApi(int id)

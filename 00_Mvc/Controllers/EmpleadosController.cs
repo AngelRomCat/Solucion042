@@ -4,20 +4,26 @@ using System.Web.Mvc;
 using _02_Services.EmpleadosServices;
 using _05_Data.Data;
 using _05_Data.ViewModels;
+using _04_Persistencia;
+using _04_Persistencia.UoW.Class;
+using _04_Persistencia.Repository.Class;
+using System.Data.Entity.Core.Common.CommandTrees.ExpressionBuilder;
 
 namespace _00_Mvc.Controllers
 {
     public class EmpleadosController : Controller
     {
         //private NorthWindTuneadoDbContext db = new NorthWindTuneadoDbContext();
+        private readonly EmpleadosService _empleadosService = new EmpleadosService();
+
 
         // GET: Empleados
         public ActionResult Index(int? id)
         {
-            IList<Empleado> empleados = null;
+            IEnumerable<Empleado> empleados = null;
             EmpleadosService service = null;
             service = new EmpleadosService();
-            empleados = service.List(id,null);
+            empleados = _empleadosService.List(id,null);
 
             return View(empleados);
         }
@@ -32,9 +38,7 @@ namespace _00_Mvc.Controllers
             }
 
             Empleado empleado = null;
-            EmpleadosService service = null;
-            service = new EmpleadosService();
-            empleado = service.Detail(id.Value);
+            empleado = _empleadosService.Detail(id.Value);
             if (empleado == null)
             {
                 return HttpNotFound();
